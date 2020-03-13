@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="teacher_demo" model="school.teacher">
+            <field name="name">Lucia Jackson</field>
+            <field name="gender">female</field>
+            <field name="category">first</field>
+            <field name="notes">Able rent long in do we. Up hung mr we give rest half. Painful so he an comfort is
+                manners. Made neat an on be gave show snug tore. Called though excuse length ye needed it he having. Mrs
+                assured add private married removed believe did she. Equally he minutes my hastily.
+            </field>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="student_demo" model="school.student">
+            <field name="full_name">Uriel Ward</field>
+            <field name="teacher_id" ref="teacher_demo"/>
+            <field name="address">8953 Jagged Cider Freeway, Yellepit, West Virginia, 26255-1456, US</field>
+            <field name="phone">(304) 121-3083</field>
+            <field name="resume_student">Able rent long in do we. Up hung mr we give rest half. Painful so he an comfort
+                is manners. Made neat an on be gave show snug tore. Called though excuse length ye needed it he having. Mrs
+                assured add private married removed believe did she. Equally he minutes my hastily.
+            </field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="subject_1" model="school.academic">
+            <field name="name">Calligraphy</field>
+        </record>
+        <record id="subject_2" model="school.academic">
+            <field name="name">Reading</field>
+        </record>
+        <record id="subject_3" model="school.academic">
+            <field name="name">Work</field>
+        </record>
+        <record id="subject_4" model="school.academic">
+            <field name="name">Natural sciences</field>
+        </record>
+        <record id="subject_5" model="school.academic">
+            <field name="name">Math</field>
+        </record>
+        <record id="subject_6" model="school.academic">
+            <field name="name">Music</field>
+        </record>
+        <record id="subject_7" model="school.academic">
+            <field name="name">Visual Arts</field>
+        </record>
+        <record id="subject_8" model="school.academic">
+            <field name="name">Russian language</field>
+        </record>
+        <record id="subject_9" model="school.academic">
+            <field name="name">Physical</field>
+        </record>
+        <record id="subject_10" model="school.academic">
+            <field name="name">Education</field>
+        </record>
+        <record id="subject_11" model="school.academic">
+            <field name="name">Native language</field>
+        </record>
+        <record id="subject_12" model="school.academic">
+            <field name="name">Fundamentals of Religious Cultures and Secular Ethics</field>
+        </record>
+        <record id="subject_13" model="school.academic">
+            <field name="name">Foreign language</field>
+        </record>
+        <record id="subject_14" model="school.academic">
+            <field name="name">Citizenship</field>
+        </record>
+        <record id="subject_15" model="school.academic">
+            <field name="name">Local history</field>
+        </record>
+        <record id="subject_16" model="school.academic">
+            <field name="name">Literature</field>
+        </record>
+        <record id="subject_17" model="school.academic">
+            <field name="name">Life Safety Basics (life safety)</field>
+        </record>
+        <record id="subject_18" model="school.academic">
+            <field name="name">Technology</field>
+        </record>
+        <record id="subject_19" model="school.academic">
+            <field name="name">Geography</field>
+        </record>
+        <record id="subject_20" model="school.academic">
+            <field name="name">Biology</field>
+        </record>
+        <record id="subject_21" model="school.academic">
+            <field name="name">Computer science</field>
+        </record>
+        <record id="subject_22" model="school.academic">
+            <field name="name">Social Studies</field>
+        </record>
+        <record id="subject_23" model="school.academic">
+            <field name="name">Drawing</field>
+        </record>
+        <record id="subject_24" model="school.academic">
+            <field name="name">Algebra</field>
+        </record>
+        <record id="subject_25" model="school.academic">
+            <field name="name">Geometry</field>
+        </record>
+        <record id="subject_26" model="school.academic">
+            <field name="name">Physics</field>
+        </record>
+        <record id="subject_27" model="school.academic">
+            <field name="name">Chemistry</field>
+        </record>
+        <record id="subject_28" model="school.academic">
+            <field name="name">Natural science</field>
+        </record>
+        <record id="subject_29" model="school.academic">
+            <field name="name">Fundamentals of Economics</field>
+        </record>
+        <record id="subject_30" model="school.academic">
+            <field name="name">Jurisprudence</field>
+        </record>
+        <record id="subject_31" model="school.academic">
+            <field name="name">Philosophy</field>
+        </record>
+        <record id="subject_32" model="school.academic">
+            <field name="name">Ecology</field>
+        </record>
+        <record id="subject_33" model="school.academic">
+            <field name="name">Astronomy</field>
+        </record>
+        <record id="subject_34" model="school.academic">
+            <field name="name">Initial military training (NVP)</field>
+        </record>
+        <record id="subject_35" model="school.academic">
+            <field name="name">World Art Culture (MHC) optional</field>
+        </record>
+        <record id="subject_36" model="school.academic">
+            <field name="name">Rhetoric</field>
+        </record>
+    </data>
+</odoo>

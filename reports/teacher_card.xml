@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_teacher">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <div class="col-xs-2" style="margin:auto;"></div>
+                            <center>
+                                <div class="col-xs-8" style="margin:auto">
+                                    <table class="table table-condensed">
+                                        <tr>
+                                            <td width="60%">
+                                                <p style="text-align:center;padding-top:10px;">
+                                                    <img t-if="not o.image"
+                                                         t-att-src="'/web/static/src/img/placeholder.png'" height="200"
+                                                         width="200"/>
+                                                    <img t-if="o.image"
+                                                         t-att-src="'data:image/png;base64,%s' % to_text(o.image)"
+                                                         height="200" width="200"/>
+                                                </p>
+                                                <p style="text-align:center;">
+                                                    <h2>
+                                                        <strong>
+                                                            <span t-field="o.name"/>
+                                                        </strong>
+                                                    </h2>
+                                                </p>
+                                            </td>
+                                            <td width="80%">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <p style="text-align:right;">
+                                                                <strong>age:</strong>
+                                                            </p>
+                                                            <p style="text-align:right;">
+                                                                <strong>subject_area:</strong>
+                                                            </p>
+                                                            <p style="text-align:right;">
+                                                                <strong>name:</strong>
+                                                            </p>
+                                                            <p style="text-align:right;">
+                                                                <strong>gender:</strong>
+                                                            </p>
+                                                        </td>
+                                                        <td>
+                                                            <p style="text-align:left;padding-left:10px;"
+                                                               t-field="o.teacher_age"/>
+                                                            <p style="text-align:left;padding-left:10px;"
+                                                               t-field="o.subject_area"/>
+                                                            <p style="text-align:left;padding-left:10px;"
+                                                               t-field="o.name"/>
+                                                            <p style="text-align:left;padding-left:10px;"
+                                                               t-field="o.gender"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="table mb-0">
+                                        <tr>
+                                            <td class="text-center align-middle" style="height: 6rem">
+                                                <img alt="Barcode"
+                                                     t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', o.name_seq, 600, 150)"
+                                                     style="width:50%;height::4rem;"/>
+                                                <span t-field="o.name_seq"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

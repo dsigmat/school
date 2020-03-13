@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.module.category" id="module_category_school">
+        <field name="name">Teacher Management</field>
+        <field name="description">Category For Teacher</field>
+        <field name="sequence">45</field>
+    </record>
+
+    <record model="res.groups" id="group_school_teacher">
+        <field name="name">Teacher</field>
+        <field name="category_id" ref="module_category_school"/>
+    </record>
+
+    <record model="res.groups" id="group_school_manager">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_school"/>
+        <field name="implied_ids" eval="[(4, ref('group_school_teacher'))]"/>
+    </record>
+
+    <record model="ir.rule" id="teacher_record_rule">
+        <field name="name">See only His Teacher</field>
+        <field name="model_id" ref="model_school_teacher"/>
+        <field name="domain_force">[]</field>
+        <field name="groups" eval="[(4, ref('group_school_teacher'))]"/>
+    </record>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--tree view of the student model-->
+    <record id='notes_tree' model='ir.ui.view'>
+        <field name="name">school.notes.tree</field>
+        <field name="model">school.notes</field>
+        <field name="arch" type="xml">
+            <tree string="Notes">
+                <field name="full_name"/>
+                <field name="notes"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <!--form view of the student model-->
+    <record id='notes_form' model='ir.ui.view'>
+        <field name="name">school.notes.form</field>
+        <field name="model">school.notes</field>
+        <field name="arch" type="xml">
+            <form string="Notes">
+                <sheet>
+                    <group>
+                            <field name="full_name"/>
+                            <field name="notes"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

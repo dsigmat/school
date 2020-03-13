@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    <record id="student_teacher_inherit" model='ir.ui.view'>-->
+    <!--        <field name="name">sale.order.inherit</field>-->
+    <!--        <field name="model">sale.order</field>-->
+    <!--        <field name="inherit_id" ref="sale.view_order_form" />-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <field name="partner_id" position="after">-->
+    <!--                <field name="subject_area"/>-->
+    <!--            </field>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="action_teacher_student" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.student</field>
+        <field name="domain">[('teacher_id', '=', active_id)]</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="school.student_tree"/>
+        <field name="binding_model_id" ref="model_school_teacher"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="open_teacher_student">
+        <field name="name">Students</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--tree view of the teacher model-->
+    <record id='teacher_tree' model='ir.ui.view'>
+        <field name="name">school.teacher.tree</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <tree string="Teachers">
+                <field name="image" widget="image" class="oe_avatar" height="120" width="120"/>
+                <field name="name_seq"/>
+                <field name="name"/>
+                <field name="experience"/>
+                <field name="category"/>
+                <field name="subject_area"/>
+                <field name="gender"/>
+                <field name="notes"/>
+                <field name="teacher_email_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="teacher_kanban" model="ir.ui.view">
+        <field name="name">school.teacher.kanban</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="image"/>
+                <field name="name"/>
+                <field name="name_seq"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_school_teacher_kanban">
+                            <div class="o_kanban_image_fill_left d-none d-md-block">
+                                <field name="image" widget="image" class="oe_avatar"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_tags_section"/>
+                                <ul>
+                                    <li>
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        Experience :
+                                        <field name="experience"/>
+                                    </li>
+                                    <li>
+                                        Category :
+                                        <field name="category"/>
+                                    </li>
+                                    <li>
+                                        Age :
+                                        <field name="teacher_age"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!--form view of the teacher model-->
+    <record id='teacher_form' model='ir.ui.view'>
+        <field name="name">school.teacher.form</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <form string="Teachers">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_teacher_student" type="object" class="oe_stat_button"
+                                icon="fa-address-card-o">
+                            <field name="student_count" string="Students" widget="statinfo"/>
+                        </button>
+                        <button name="%(open_teacher_student)d" type="action" string="Number of students"
+                                class="oe_stat_button"
+                                icon="fa-usd">
+                        </button>
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name_seq"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="teacher_data"/>
+                            <field name="teacher_age"/>
+                            <field name="teacher_email_id"/>
+                        </group>
+                        <group>
+                            <field name="experience"/>
+                            <field name="category"/>
+                            <field name="subject_area"/>
+                            <field name="gender"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Resume Teacher">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_teacher_search" model="ir.ui.view">
+        <field name="name">school.teacher.search</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <search string="Search Teacher">
+                <field name="name"
+                       filter_domain="['|',('name','ilike',self),('name_seq','ilike',self)],('category','ilike',self)],('gender','ilike',self)]"/>
+                <field name="name_seq"/>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="gender"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+    <!--action of the teacher menu-->
+    <record id='action_teacher' model='ir.actions.act_window'>
+        <field name="name">Teacher</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.teacher</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a New First Teacher!
+            </p>
+        </field>
+    </record>
+    <menuitem id="teacher_root" name="Teacher" sequence="0"/>
+    <menuitem id="teacher_menu" name="Teacher" parent="teacher_root" action="action_teacher"/>
+</odoo>

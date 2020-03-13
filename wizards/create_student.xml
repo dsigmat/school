@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="create_student_form" model="ir.ui.view">
+         <field name="name">create.student.wizard</field>
+         <field name="model">create.student</field>
+         <field name="arch" type="xml">
+            <form string="Create Student">
+                <group>
+                    <field name="teacher_id"/>
+                    <field name="student_date"/>
+                </group>
+                <footer>
+                    <button name="create_student" string="Create" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+         </field>
+     </record>
+
+    <record id="create_student_wizard" model="ir.actions.act_window">
+        <field name="name">Create Student</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">create.student</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="create_student_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

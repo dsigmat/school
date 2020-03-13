@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report
+        id="report_teacher_card"
+        string="Teacher Card"
+        model="school.teacher"
+        report_type="qweb-pdf"
+        name="school.report_teacher"
+        file="school.report_teacher"/>
+</odoo>
